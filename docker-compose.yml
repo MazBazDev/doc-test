@@ -6,3 +6,14 @@ services:
       - "8080:3500" # Expose port 8080 on WSL to port 80 in the container
     volumes:
       - ./app:/var/app
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dashy.rule=Host(`test.mazbaz.fr`)"
+      - "traefik.http.routers.dashy.entrypoints=websecure"
+      - "traefik.http.routers.dashy.tls.certresolver=leresolver"
+networks:
+  default:
+  traefik:
+    external: true
