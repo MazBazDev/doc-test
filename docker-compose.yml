@@ -1,9 +1,9 @@
 version: '3'
 services:
   doc:
-    image: victorialabs/doccumentation
+    image: victorialabs/documentation:main
     ports:
-      - "8080:3500"
+      - "8080:3501"
 
     restart: always
 
