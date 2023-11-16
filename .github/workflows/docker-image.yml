@@ -2,11 +2,9 @@ name: Publish Docker image
 
 on:
   push:
-    branches:
-      - main
+      branches: [ "main" ]
   pull_request:
-    branches:
-      - main
+      branches: [ "main" ]
     
 jobs:
   push_to_registry:
@@ -34,5 +32,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: main
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
