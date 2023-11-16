@@ -1,18 +1,20 @@
 version: '3'
 services:
   doc:
-    image: docker.io/mazbaz/vlabs-doccumentation
+    image: victorialabs/doccumentation
     ports:
-      - "8080:3500" # Expose port 8080 on WSL to port 80 in the container
-    volumes:
-      - ./app:/var/app
+      - "8080:3500"
+
+    restart: always
+
     networks:
       - traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dashy.rule=Host(`test.mazbaz.fr`)"
-      - "traefik.http.routers.dashy.entrypoints=websecure"
-      - "traefik.http.routers.dashy.tls.certresolver=leresolver"
+      - "traefik.http.routers.doc.rule=Host(`test.mazbaz.fr`)"
+      - "traefik.http.routers.doc.entrypoints=websecure"
+      - "traefik.http.routers.doc.tls.certresolver=leresolver"
+
 networks:
   default:
   traefik:
