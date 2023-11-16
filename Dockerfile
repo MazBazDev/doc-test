@@ -16,4 +16,5 @@ COPY ./app .
 EXPOSE 3500
 
 # Commande par défaut pour démarrer l'application
-ENTRYPOINT ["npm", "run", "docusaurus", "start", "--", "--host=0.0.0.0", "--port=3500"]
+# ENTRYPOINT ["npm", "run", "docusaurus", "start", "--", "--host=0.0.0.0", "--port=3500"]
+ENTRYPOINT ["npm", "run", "start", "--", "--host=0.0.0.0", "--port=3500"]
